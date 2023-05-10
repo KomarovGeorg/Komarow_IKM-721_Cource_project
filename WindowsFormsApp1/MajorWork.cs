@@ -238,8 +238,12 @@ namespace WindowsFormsApp1
         }
         public void NewRec() // новий запис
         {
-            this.Data = ""; // "" - ознака порожнього рядка
+            this.SaveFileName = ""; // рядок - порожній рядок
+            this.OpenFileName = ""; // рядок - порожній рядок
             this.Result = null; // для string- null
+            this.Modify = false; // булевий - false
+            this.Key = 0; // ціле число - 0
+            this.Data = "";
         }
     }
 }

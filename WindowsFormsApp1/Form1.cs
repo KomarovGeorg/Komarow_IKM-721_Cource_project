@@ -14,13 +14,34 @@ namespace WindowsFormsApp1
    
         public partial class Form1 : Form
         {
-            private bool Mode;// Режим дозволу / заборони введення даних
+            ToolStripLabel dateLabel;
+            ToolStripLabel timeLabel;
+            ToolStripLabel infoLabel;
+            Timer timer;
+        private bool Mode;// Режим дозволу / заборони введення даних
             private MajorWork MajorObject; // Створення об'єкта класу MajorWork
             public Form1()
             {
                 InitializeComponent();
+                infoLabel = new ToolStripLabel();
+                infoLabel.Text = "Текущие дата и время:";
+                dateLabel = new ToolStripLabel();
+                timeLabel = new ToolStripLabel();
+                statusStrip1.Items.Add(infoLabel);
+                statusStrip1.Items.Add(dateLabel);
+                statusStrip1.Items.Add(timeLabel);
+                timer = new Timer() { Interval = 1000 };
+                timer.Tick += timer_Tick;
+                timer.Start();
+             }
+            void timer_Tick(object sender, EventArgs e)
+            {
+                dateLabel.Text = DateTime.Now.ToLongDateString();
+
+                timeLabel.Text = DateTime.Now.ToLongTimeString();
             }
-            private void tClock_Tick(object sender, EventArgs e)
+
+        private void tClock_Tick(object sender, EventArgs e)
             {
                 tClock.Stop();
                 MessageBox.Show("Минуло 25 секунд", "Увага");// Виведення повідомлення "Минуло 25 секунд" на екран
@@ -34,7 +55,10 @@ namespace WindowsFormsApp1
                 About A = new About(); // створення форми About
                 A.tAbout.Start();
                 A.ShowDialog(); // відображення діалогового вікна About
-               
+                toolTip1.SetToolTip(bSearch, "Натисніть на кнопку дляпошуку");  
+                toolTip1.IsBalloon = true;
+
+
                 this.Mode = true;
             }
             private void bStart_Click(object sender, EventArgs e)
@@ -93,6 +117,7 @@ namespace WindowsFormsApp1
         private void проПрограммуToolStripMenuItem_Click(object sender, EventArgs e)
         {
             About A = new About();
+            A.progressBar1.Hide();
             A.ShowDialog();
         }
 
