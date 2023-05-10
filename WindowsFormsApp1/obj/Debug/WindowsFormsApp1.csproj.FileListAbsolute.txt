@@ -9,3 +9,4 @@
 \\Mac\Home\Desktop\NewFolder\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 \\Mac\Home\Desktop\NewFolder\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 \\Mac\Home\Desktop\NewFolder\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+\\Mac\Home\Desktop\NewFolder\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.About.resources
